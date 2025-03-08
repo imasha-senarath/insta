@@ -19,20 +19,82 @@ class StoryItem extends StatelessWidget {
     final Story story = stories[index];
     final User? user = User.getUserById(story.user);
 
+    final bool isFirstItem = index == 0;
+
     return Padding(
-      padding: EdgeInsets.only(right: index == stories.length - 1 ? 0 : 15),
+      padding: EdgeInsets.only(right: index == stories.length - 1 ? 0 : 10),
       child: GestureDetector(
         onTap: () {},
-        child: Column(
+        child: isFirstItem ? Column(
           children: [
-            CircleAvatar(
-              radius: 35,
-              backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'),
+            Stack(
+              children: [
+                const CircleAvatar(
+                  radius: 41.0,
+                  backgroundImage: NetworkImage('https://www.imashasenarath.com/images/site-assets/display-image-2.jpg'),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white, // White background for contrast
+                    ),
+                    padding: const EdgeInsets.all(2), // Small padding around icon
+                    child: const CircleAvatar(
+                      radius: 12,
+                      backgroundColor: Colors.blue,
+                      child: Icon(
+                        Icons.add,
+                        size: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
+            const Text(
+              "Your story",
+              style: TextStyle(fontSize: 14, color: Colors.black),
+            )
+          ],
+        ) : Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle, // Make the container circular
+                gradient: const RadialGradient(
+                  colors: [Colors.yellow, Colors.red, Colors.purple], // Gradient colors
+                  radius: 1.0,
+                  stops: [0.1, 0.6, 1.0],
+                ),
+                border: Border.all(
+                  width: 3.0,
+                  color: Colors.transparent,
+                ),
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle, // Make the container circular
+                  color: Colors.white,
+                  border: Border.all(
+                    width: 3.0,
+                    color: Colors.transparent,
+                  ),
+                ),
+                child: CircleAvatar(
+                  radius: 35.0,
+                  backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'), // Image source
+                ),
+              ),
+            ),
+            const SizedBox(height: 5),
             Text(
               user!.name,
-              style: const TextStyle(fontSize: 12, color: Colors.black),
+              style: const TextStyle(fontSize: 14, color: Colors.black),
             )
           ],
         ),

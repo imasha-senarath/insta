@@ -26,7 +26,7 @@ class Story {
     ),
     Story(
       id: '2',
-      user: '3',
+      user: '5',
       content: [
         'https://source.unsplash.com/random/800x600?mountain',
       ],
@@ -54,7 +54,7 @@ class Story {
     ),
     Story(
       id: '5',
-      user: '1',
+      user: '3',
       content: [
         'https://source.unsplash.com/random/800x600?beach',
       ],

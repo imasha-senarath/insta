@@ -21,21 +21,20 @@ class PostItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: index == posts.length - 1 ? 0 : 20.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             child: Row(
               children: [
                 CircleAvatar(
-                  radius: 20,
+                  radius: 18,
                   backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'),
                 ),
                 const SizedBox(width: 8),
                 Text(
                   user!.name,
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 14,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,65 +51,74 @@ class PostItem extends StatelessWidget {
           AspectRatio(
             aspectRatio: 4 / 5,
             child: Image.network(
-              'https://picsum.photos/100/300/?blur',
+              post.image,
               fit: BoxFit.cover,
             ),
           ),
           Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.favorite_border, size: 30),
+                icon: const Icon(Icons.favorite_border, size: 28),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.message, size: 30),
+                icon: const Icon(Icons.message, size: 28),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.send, size: 30),
+                icon: const Icon(Icons.send, size: 28),
                 onPressed: () {},
               ),
               const Spacer(),
               IconButton(
-                icon: const Icon(Icons.bookmark, size: 30),
+                icon: const Icon(Icons.bookmark_outline, size: 28),
                 onPressed: () {},
               ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  user!.name,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 5),
-                Text(
-                  post.caption,
-                  style: const TextStyle(
-                    fontSize: 12,
+                const Text(
+                  'Liked by sandi and others',
+                  style: TextStyle(
+                    fontSize: 14,
                     color: Colors.black,
                   ),
                 ),
+                Row(
+                  children: [
+                    Text(
+                      user!.name,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      post.caption,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  post.time,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                )
               ],
             ),
-          ),
-          const SizedBox(height: 5),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-            child: Text(
-              post.time,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.grey,
-              ),
-            ),
-          ),
+          )
         ],
       ),
     );
