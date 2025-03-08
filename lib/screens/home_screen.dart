@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   final List<Story> _stories = Story.dummyStories;
   final List<Post> _posts = Post.dummyPosts;
 
@@ -38,7 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {},
                     ),
                     IconButton(
-                      icon: const Icon(Icons.message, size: 28),
+                      icon: Image.asset(
+                        'assets/images/ic_chat.png',
+                        width: 24,
+                        height: 24,
+                      ),
                       onPressed: () {},
                     ),
                   ],

@@ -39,9 +39,9 @@ class StoryItem extends StatelessWidget {
                   child: Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.white, // White background for contrast
+                      color: Colors.white,
                     ),
-                    padding: const EdgeInsets.all(2), // Small padding around icon
+                    padding: const EdgeInsets.all(2),
                     child: const CircleAvatar(
                       radius: 12,
                       backgroundColor: Colors.blue,
@@ -65,9 +65,9 @@ class StoryItem extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                shape: BoxShape.circle, // Make the container circular
+                shape: BoxShape.circle,
                 gradient: const RadialGradient(
-                  colors: [Colors.yellow, Colors.red, Colors.purple], // Gradient colors
+                  colors: [Colors.yellow, Colors.red, Colors.purple],
                   radius: 1.0,
                   stops: [0.1, 0.6, 1.0],
                 ),
@@ -87,7 +87,7 @@ class StoryItem extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   radius: 35.0,
-                  backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'), // Image source
+                  backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'),
                 ),
               ),
             ),

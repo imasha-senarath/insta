@@ -19,7 +19,7 @@ class PostItem extends StatelessWidget {
     User? user = User.getUserById(post.user);
 
     return Padding(
-      padding: EdgeInsets.only(bottom: index == posts.length - 1 ? 0 : 20.0),
+      padding: const EdgeInsets.only(bottom: 20.0),
       child: Column(
         children: [
           Padding(
@@ -62,11 +62,19 @@ class PostItem extends StatelessWidget {
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.message, size: 28),
+                icon: Image.asset(
+                  'assets/images/ic_comment.png',
+                  width: 24, // Adjust size
+                  height: 24,
+                ),
                 onPressed: () {},
               ),
               IconButton(
-                icon: const Icon(Icons.send, size: 28),
+                icon: Image.asset(
+                  'assets/images/ic_send.png',
+                  width: 24, // Adjust size
+                  height: 24,
+                ),
                 onPressed: () {},
               ),
               const Spacer(),

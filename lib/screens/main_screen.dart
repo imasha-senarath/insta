@@ -27,35 +27,58 @@ class _MainScreenState extends State<MainScreen> {
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
-            _currentIndex = index; // Change the active tab
+            _currentIndex = index;
           });
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, size: 30),
+            icon: Container(
+              child: Image.asset(
+                'assets/images/ic_home.png',
+                width: 24,
+                height: 24,
+              ),
+            ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Image.asset(
+              'assets/images/ic_search.png',
+              width: 24,
+              height: 24,
+            ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Image.asset(
+              'assets/images/ic_add.png',
+              width: 24,
+              height: 24,
+            ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.video_camera_back),
+            icon: Image.asset(
+              'assets/images/ic_video.png',
+              width: 24,
+              height: 24,
+            ),
             label: "",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+          const BottomNavigationBarItem(
+            icon: CircleAvatar(
+                radius: 12,
+                backgroundImage: NetworkImage(
+                  'https://www.imashasenarath.com/images/site-assets/display-image-2.jpg',
+                ),
+            ),
             label: "",
           ),
         ],
         selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
-        showSelectedLabels: false, // Hide selected labels
-        showUnselectedLabels: false, // Hide unselected labels
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       ),
       body: _pages[_currentIndex],
     );
