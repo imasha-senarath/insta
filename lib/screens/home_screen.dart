@@ -8,38 +8,61 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  final List<String> _stories = ["Food", "Technology", "Fashion", "Science", "Sports", "Life"];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey,
-        elevation: 0, // No shadow
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: FittedBox(
-              fit: BoxFit.contain,
-              child: Image.asset(
-                'assets/images/text-logo.png',
-                width: 50,
-              )), // Left side logo (replace with your image)
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  const Image(
+                    image: AssetImage('assets/images/text-logo.png'),
+                    width: 120,
+                  ),
+                  const Spacer(),
+                  IconButton(
+                    icon: const Icon(Icons.heart_broken, size: 28), // First icon
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.message, size: 28), // Second icon
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                height: 80,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: _stories.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(right: index == _stories.length - 1 ? 0 : 20),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: const CircleAvatar(
+                          radius: 40, // Adjust size
+                          backgroundImage: NetworkImage('https://example.com/image.jpg'),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.heart_broken, size: 28), // First icon
-            onPressed: () {
-              // Action for search icon
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.message, size: 28), // Second icon
-            onPressed: () {
-              // Action for notifications icon
-            },
-          ),
-        ],
-      ),
-      body: const SafeArea(
-        child: Text(""),
       ),
     );
   }
