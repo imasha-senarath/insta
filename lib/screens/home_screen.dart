@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta/screens/view_story.dart';
 
 import '../models/post.dart';
 import '../models/story.dart';
@@ -24,7 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 child: Row(
                   children: [
                     const Image(

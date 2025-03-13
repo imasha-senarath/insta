@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/story.dart';
 import '../models/user.dart';
+import '../screens/view_story.dart';
 
 class StoryItem extends StatelessWidget {
   const StoryItem({
@@ -24,7 +25,16 @@ class StoryItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: index == stories.length - 1 ? 0 : 10),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          if(!isFirstItem) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ViewStory(story: story),
+              ),
+            );
+          }
+        },
         child: isFirstItem ? Column(
           children: [
             Stack(
