@@ -28,7 +28,8 @@ class PostItem extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 18,
-                  backgroundImage: NetworkImage(user?.image ?? 'https://example.com/image.jpg'),
+                  backgroundImage: NetworkImage(
+                      user?.image ?? 'https://example.com/image.jpg'),
                 ),
                 const SizedBox(width: 8),
                 Text(
@@ -123,7 +124,7 @@ class PostItem extends StatelessWidget {
                     fontSize: 12,
                     color: Colors.grey,
                   ),
-                )
+                ),
               ],
             ),
           )

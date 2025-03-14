@@ -32,7 +32,7 @@ class _ViewStoryState extends State<ViewStory> {
                 }
               },
               child: Image.network(
-                "https://picsum.photos/seed/picsum/200/300",
+                widget.story.content[0],
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -59,6 +59,14 @@ class _ViewStoryState extends State<ViewStory> {
                         fontSize: 14,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      widget.story.time,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
                       ),
                     ),
                     const Spacer(),

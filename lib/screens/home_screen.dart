@@ -3,6 +3,7 @@ import 'package:insta/screens/view_story.dart';
 
 import '../models/post.dart';
 import '../models/story.dart';
+import '../widget/chat_count.dart';
 import '../widget/post_item.dart';
 import '../widget/story_item.dart';
 
@@ -34,23 +35,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 120,
                     ),
                     const Spacer(),
-                    IconButton(
-                      icon: const Icon(Icons.favorite_border, size: 28),
-                      onPressed: () {},
+                    Stack(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.favorite_border, size: 28),
+                          onPressed: () {},
+                        ),
+                      ],
                     ),
-                    IconButton(
-                      icon: Image.asset(
-                        'assets/images/ic_chat.png',
-                        width: 24,
-                        height: 24,
-                      ),
-                      onPressed: () {},
-                    ),
+                    const ChatCount(count: 3)
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: SizedBox(
                   height: 115,
                   child: ListView.builder(
